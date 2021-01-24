@@ -7,6 +7,27 @@ h1{
   color:midnightblue;
   place-content: center;
 }
+.js-clock{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock{
+  background-color: azure;
+  width: 300px;
+  border: 0.25rem solid;
+  border-radius: 30px;
+  border-color: rgb(2, 0, 36);
+  border-image: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(62,231,203,1) 50%, rgba(0,0,0,1) 100%);
+  border-image-slice: 1;
+  opacity: 75%;
+}
+
+.js-toDoForm{
+  display: grid;
+  place-content: center;
+}
 
 .btn{
   cursor: pointer;
@@ -21,12 +42,39 @@ h1{
 }
 
 .greetings{
-  color: azure;
+  color: black;
+  text-shadow:
+    -1px -1px 0 azure,
+    1px -1px 0 azure,
+    -1px 1px 0 azure,
+    1px 1px 0 azure;  
+  font-size: 25px;
+  font-family: "Lucida Handwriting";
 }
 
 .showing{
   display: grid;
   place-content: center;
+}
+
+.delBtn{
+  background: none;
+}
+
+.span-todos{
+  margin: auto;
+}
+
+.list-todos{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px;
+  background-color: #3d3b41;
+  opacity: 75%;
+  border-radius: 20px;
+  font-size: 28px;
+  color: white;
 }
 
 @keyframes fadeIn{
@@ -45,11 +93,28 @@ h1{
 
 .bgImage{
   position: absolute;
+  background-size:  cover;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  min-height: 100%;
+  min-width: 1024px;
   z-index: -1;
   animation: fadeIn 0.5s linear;
 }
 
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  .bgImage {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}
+
+.js-weather{
+  background-color: white;
+  border-radius: 3px;
+  opacity: 50%;
+  position: absolute;
+  bottom: 10px;
+}
