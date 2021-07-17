@@ -1,0 +1,46 @@
+---
+layout: post
+title:  "2021 SCPC Round 1"
+date:   2021-07-17 22:35:33 +0900
+categories: algorithm contest competition
+---
+
+The annual [SCPC][scpc] event is here, so might as well give it a try!
+
+Last year I had still been learning the basics of C++ and some fundamental algorithms, which obviously meant that I was severely unprepared, and had a stunning result of 1/5 solved problems. Wasn't exactly happy after that, but it did help me gain some extra motivation for the other incoming events afterwards.
+
+After screwing up a bit on [Google Codejam][google-codejam] earlier this year, I had been studying a bit more than usual for ICPC, and I think this will be a good opportunity for me to test my skills again and see how much I've improved over the past few months.
+
+I solved a total of 3.5(?)/5 problems on this first round. I say 3.5 because I couldn't solve the last testcase for problem 4, and problem 5 turned out to be a bit too hard for me to implement properly.
+
+Here are some details on each problem:
+
+A. **친구들(Friends)** - A simple disjoint set problem. Easily solved by applying an union-find algorithm and counting the number of total distinct disjoint sets.
+
+B. **이진수(Binary)** - Greedily constructing a binary string. I first constructed the string A with maximum value(placing 1s in every spot possible), and then iterated over the string again to eliminate unnecessary 1s for the minimum value possible. I think it was an easy problem, but I struggled a lot trying to implement the whole process correctly resulting in *6 submissions*... Not exactly proud of that one.
+
+C. **No Cycle** - Another disjoint set problem. I first separated all the vertices into disjoint sets using the directed edges, and then used the following logic to direct the undirected edges.
+* since the problem wants you to output the answer as the minimum binary string, I've iterated over each undirected edge in their original order.
+* if the two vertices of the current undirected edge are in separate groups, the undirected edge can be directly implemented as a direct edge in its original order(output string '0')
+* if not, run a BFS on the first vertex to the other to check which vertex can be reached from the other(since the disjoint sets are formed using only directed edges, only one vertex can reach the other)
+* if reachable in the initial order, output string '0'
+* if not, check if the reverse is possible and if so output string '1'
+* if either of them cannot reach the other, then the edge's direction does not matter. can be implemented in both ways so just output string '0'
+
+D. **예약 시스템(Reservation System)** - An odd greedy problem. I couldn't get the last testcase right but here is how I solved the first two other testcases.
+* only the 4 smallest elements in each group are actually used in calculation, so it is fine to dump the rest
+* if the groups are all even, you first sort the groups in decreasing order according to their 3rd and 4th element, and then ignore the first two groups' 3rd and 4th element in calculation since they will be the ends of the hallway.
+* add the 1st~4th smallest elements of each group(remember that the first two groups have an exception)
+* if the groups are all odd, go throgh the same process but for calculation you need to add the smallest element of each group twice instead of once.
+
+E. **차이(Difference)** - I still don't know the correct solution for this problem, but here is my thought process and what I thought may be the solution for this problem.
+* [Using how you can solve a different constraints system with shortest-paths finding algorithms(start from the 30th page in source)][dconstraints], you can apply the same logic to this problem to figure out the answers to each query of the second type.
+* You can also detect whether there is a conflict in the answer by checking if a negative cycle exists within the graph you construct with the technique mentioned above. (Output string "CF")
+* If the two nodes aren't connected in the graph, you can output the answer string "NC" as well.
+* The part that made me fail the implement the problem correctly is that you can't just search for a negative cycle at every query, because the problem wants you to ignore all 'unnecessary edges' in finding the answer to the actual query. For example, if the given query is to get X2-X1, and you have the edges X2-X1, X2-X3, X3-X4, X4-X2, and the last 3 edges form a negative cycle, they should not affect the actual answer to the query which is X2-X1. And since the edges technically do not get removed after being added, you have to make sure that you are only using the correct edges in your SPFA when answering a query.
+
+Overall I think I did fine, 3.5/5 problems should be enough to advance to the next round. Since it has been such a long time after the last competition I partook in, it was hard to keep myself calm and focused during the event when I started taking too much time on problem B. I've also realized that I'm not exactly great at complex implementation problems, so I'll need to practice on that a bit more.
+
+[scpc]: https://www.codeground.org/
+[google-codejam]: https://codingcompetitions.withgoogle.com/codejam
+[dconstraints]: https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-introduction-to-algorithms-sma-5503-fall-2005/video-lectures/lecture-18-shortest-paths-ii-bellman-ford-linear-programming-difference-constraints/lec18.pdf
