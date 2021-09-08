@@ -2,7 +2,7 @@
 layout: post
 title:  "2021 SCPC Round 1"
 date:   2021-07-17 22:35:33 +0900
-categories: algorithm contest competition
+categories: algorithm contest
 ---
 
 The annual [SCPC][scpc] event is here, so might as well give it a try!
