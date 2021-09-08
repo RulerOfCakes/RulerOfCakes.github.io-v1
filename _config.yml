@@ -17,20 +17,39 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-
+author:
+  name: Andrew Moon
+  social:
+    github: rulerofcakes
+    artstation: rulerofcakes
+    instagram: rulerofcakes
+    email: fragmentbombs@gmail.com
+  
+  about: |
+    I'm a student @ Hanyang University, Seoul.
+    major: CS.
+  picture: /assets/img/profile/plasmaorb.png
 title: scrambles
-email: fragmentbombs@gmail.com
+
 description: >- # this means to ignore newlines until "baseurl:"
   My brain likes egg scrambles but my stomach disagrees
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
-github_username:  rulerofcakes
+github:  rulerofcakes
+instagram: rulerofcakes
+artstation: RulerOfCakes
+email: fragmentbombs@gmail.com
+
+paginate: 5
+paginate_path: /blog/:num/
 
 # Build settings
 remote_theme: hydecorp/hydejack
 plugins:
   - jekyll-feed
+  - jekyll-avatar
+  - jekyll-paginate
 
 # Exclude from processing.
 # The following items will not be processed, by default.

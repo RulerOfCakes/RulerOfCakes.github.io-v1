@@ -4,3 +4,7 @@
 
 layout: home
 ---
+Welcome to my blog.
+You can have a better view at my recent posts **[here.][here]**
+
+[here]: /blog

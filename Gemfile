@@ -30,3 +30,7 @@ gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
 
 
 gem "jekyll-include-cache", "~> 0.2.1"
+
+gem "jekyll-avatar"
+
+gem "jekyll-paginate"
